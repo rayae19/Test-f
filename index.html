@@ -1590,7 +1590,7 @@ function BottomNav({ tab, setTab }) {
 /* ============================================================
    ROOT APP + PROVIDER
    ============================================================ */
-export default function App() {
+function App() {
   const [tab, setTab] = useState("search");
   const [repos, setRepos] = useState(() => StorageService.getRepos());
   const [playlists, setPlaylists] = useState(() => StorageService.getPlaylists());
