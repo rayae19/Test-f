@@ -24,7 +24,9 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel" data-presets="react">
-import { useState, useEffect, useRef, useCallback, createContext, useContext } from "react";
+
+// React loaded from CDN
+const { useState, useEffect, useRef, useCallback, createContext, useContext } = React;
 
 /* ============================================================
    TYPES  (TypeScript interfaces expressed as JSDoc)
@@ -135,8 +137,7 @@ const StorageService = {
 // Resolve the backend base URL once at module load.
 // import.meta.env.VITE_API_URL is injected by Vite at build time.
 // Falls back to empty string so the path stays relative ("/api/...") in dev.
-const _API_BASE =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_URL) || "";
+const _API_BASE = "";
 
 const CORS_PROXIES = [
   // ① Own backend (Render) — most reliable, no rate-limits
@@ -1824,6 +1825,7 @@ export default function App() {
     </AppCtx.Provider>
   );
 }
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   React.createElement(React.StrictMode, null, React.createElement(App))
